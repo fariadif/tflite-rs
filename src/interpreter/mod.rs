@@ -13,6 +13,7 @@ use crate::{bindings, Error, Result};
 pub use builder::InterpreterBuilder;
 use context::{ElemKindOf, ElementKind, QuantizationParams, TensorInfo};
 pub use fbmodel::FlatBufferModel;
+use log::info;
 use op_resolver::OpResolver;
 
 cpp! {{
@@ -136,7 +137,7 @@ where
                 interpreter->SetNumThreads(threads);
             })
         };
-        println!("Set num threads to {}", threads);
+        info!("Set num threads to {}", threads);
     }
 
     /// Read only access to list of inputs.

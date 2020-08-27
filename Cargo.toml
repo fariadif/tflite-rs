@@ -45,6 +45,7 @@ cpp = "0.5"
 libc = "0.2"
 maybe-owned = "0.3"
 thiserror = "1.0.17"
+log = "0.4.11"
 
 [build-dependencies]
 bart = { version = "0.1", optional = true }
