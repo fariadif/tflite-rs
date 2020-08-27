@@ -28,6 +28,7 @@ fn prepare_tensorflow_source() -> PathBuf {
         skip_exist: false,
         buffer_size: 65536,
         copy_inside: false,
+        content_only: false,
         depth: 0,
     };
 
@@ -161,7 +162,7 @@ fn prepare_tensorflow_library() {
         }
         println!("cargo:rustc-link-search=native={}", out_dir);
         println!("cargo:rustc-link-lib=static=tensorflow-lite{}", binary_changing_features);
-	println!("cargo:rustc-link-lib=atomic");
+        println!("cargo:rustc-link-lib=atomic");
     }
     #[cfg(not(feature = "build"))]
     {
