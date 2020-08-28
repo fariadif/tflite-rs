@@ -196,7 +196,7 @@ fn import_tflite_types() {
     let bindings = Builder::default()
         .whitelist_recursively(true)
         .prepend_enum_name(false)
-        .impl_debug(true)
+        .impl_debug(false)
         .with_codegen_config(CodegenConfig::TYPES)
         .layout_tests(false)
         .enable_cxx_namespaces()
@@ -253,7 +253,7 @@ fn build_inline_cpp() {
         .flag("-std=c++14")
         .flag("-Wno-sign-compare")
         .define("GEMMLOWP_ALLOW_SLOW_SCALAR_FALLBACK", None)
-        .debug(true)
+        .debug(false)
         .opt_level(if cfg!(debug_assertions) { 0 } else { 2 })
         .build("src/lib.rs");
 }
